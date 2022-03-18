@@ -21,4 +21,11 @@ public class Game {
     }
 
 
+    public String findWinner(int player, int dealer) {
+        if (player > dealer) {
+            return "Player wins!";
+        } else {
+            return "Dealer wins!";
+        }
+    }
 }
