@@ -11,4 +11,14 @@ public class Game {
         this.dealerCards = new ArrayList<Card>();
 
     }
+
+    public void turnPlayerCard(Card card) {
+        this.playerCards.add(card);
+    }
+
+    public void turnDealerCard(Card card){
+        this.dealerCards.add(card);
+    }
+
+
 }

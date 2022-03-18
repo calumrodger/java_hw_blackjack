@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Player {
 
     private Card firstCard;
@@ -22,5 +24,13 @@ public class Player {
 
     public void setSecondCard(Card secondCard) {
         this.secondCard = secondCard;
+    }
+
+
+    public int getHandValue() {
+        int card1Value = firstCard.getValue();
+        int card2Value = secondCard.getValue();
+        int handValue = (card1Value + card2Value);
+        return handValue;
     }
 }

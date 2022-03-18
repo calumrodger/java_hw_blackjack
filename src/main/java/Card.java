@@ -2,10 +2,12 @@ public class Card {
 
     private CardSuitType suitType;
     private CardValueType valueType;
+    private int value;
 
-    public Card(CardSuitType suitType, CardValueType valueType) {
+    public Card(CardSuitType suitType, CardValueType valueType, int value) {
         this.suitType = suitType;
         this.valueType = valueType;
+        this.value = value;
     }
 
     public CardSuitType getSuitType() {
@@ -23,4 +25,9 @@ public class Card {
     public void setValueType(CardValueType valueType) {
         this.valueType = valueType;
     }
+
+    public int getValue() {
+        return value;
+    }
+
 }
