@@ -11,7 +11,7 @@ public class PlayerTest {
     @Before
     public void setUp() {
         stack = new Stack();
-        player = new Player(null, null, false);
+        player = new Player(null, null, false, false);
     }
 
     @Test
@@ -54,7 +54,8 @@ public class PlayerTest {
     @Test
     public void canCheckIfBust() {
         stack.fillStack();
-        player.dealInitialCards(stack.getCardFromStack());
+        player.dealFirstCard(stack.getCardFromStack());
+        player.dealSecondCard(stack.getCardFromStack());
         player.twist(stack.getCardFromStack());
         player.twist(stack.getCardFromStack());
         player.twist(stack.getCardFromStack());

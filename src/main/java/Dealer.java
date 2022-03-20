@@ -6,12 +6,14 @@ public class Dealer {
     private Card secondCard;
     private ArrayList<Card> dealerCards;
     private boolean bust;
+    private boolean stuck;
 
-    public Dealer(Card firstCard, Card secondCard, boolean bust) {
+    public Dealer(Card firstCard, Card secondCard, boolean bust, boolean stuck) {
         this.firstCard = firstCard;
         this.secondCard = secondCard;
         this.dealerCards = new ArrayList<>();
         this.bust = bust;
+        this.stuck = stuck;
 
     }
 
@@ -39,6 +41,18 @@ public class Dealer {
         this.dealerCards = dealerCards;
     }
 
+    public boolean isStuck() {
+        return stuck;
+    }
+
+    public void setStuck(boolean stuck) {
+        this.stuck = stuck;
+    }
+
+    public void setStuckTrue(){
+        this.stuck = true;
+    }
+
     public boolean isBust() {
         return bust;
     }
@@ -47,17 +61,21 @@ public class Dealer {
         this.bust = bust;
     }
 
-    public void dealInitialCards(Card card) {
+    public void dealFirstCard(Card card) {
         this.dealerCards.add(card);
+    }
+
+    public void dealSecondCard(Card card) {
         this.dealerCards.add(card);
     }
 
     public void twist(Card card) {
-        if (this.bust == false) {
+        if (this.getDealerCardsTotal() < 16) {
             this.dealerCards.add(card);
-        }
         if (this.getDealerCardsTotal() > 21) {
             this.bust = true;
+        }} else {
+            this.stuck = true;
         }
     }
 
@@ -67,6 +85,10 @@ public class Dealer {
             total += (this.dealerCards.get(i).getValue());
         }
         return total;
+    }
+
+    public int getValueOfOneCardFromDealerCards(int i) {
+        return this.dealerCards.get(i).getValue();
     }
 
 

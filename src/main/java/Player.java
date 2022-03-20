@@ -7,12 +7,14 @@ public class Player {
     private Card secondCard;
     private ArrayList<Card> playerCards;
     private boolean bust;
+    private boolean stuck;
 
-    public Player(Card firstCard, Card secondCard, boolean bust) {
+    public Player(Card firstCard, Card secondCard, boolean bust, boolean stuck) {
         this.firstCard = firstCard;
         this.secondCard = secondCard;
         this.playerCards = new ArrayList<>();
         this.bust = bust;
+        this.stuck = stuck;
     }
 
     public ArrayList<Card> getPlayerCards() {
@@ -23,6 +25,18 @@ public class Player {
         this.playerCards = playerCards;
     }
 
+    public boolean isStuck() {
+        return stuck;
+    }
+
+    public void setStuck(boolean stuck) {
+        this.stuck = stuck;
+    }
+
+    public void setStuckTrue(){
+        this.stuck = true;
+    }
+
     public boolean isBust() {
         return bust;
     }
@@ -31,13 +45,16 @@ public class Player {
         this.bust = bust;
     }
 
-    public void dealInitialCards(Card card) {
+    public void dealFirstCard(Card card) {
         this.playerCards.add(card);
+    }
+
+    public void dealSecondCard(Card card) {
         this.playerCards.add(card);
     }
 
     public void twist(Card card) {
-        if (this.bust == false) {
+        if (this.bust == false && this.stuck == false) {
             this.playerCards.add(card);
         }
         if (this.getPlayerCardsTotal() > 21) {
