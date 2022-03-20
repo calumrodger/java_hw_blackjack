@@ -15,8 +15,8 @@ public class GameTest {
     public void setUp() {
         game = new Game(null, null);
         stack = new Stack();
-        player = new Player(null, null);
-        dealer = new Dealer(null, null);
+        player = new Player(null, null, false);
+        dealer = new Dealer(null, null, false);
     }
 
     @Test

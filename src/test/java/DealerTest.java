@@ -12,7 +12,7 @@ public class DealerTest {
     @Before
     public void setUp() {
         stack = new Stack();
-        dealer = new Dealer(null, null);
+        dealer = new Dealer(null, null, false);
     }
 
     @Test

@@ -34,6 +34,7 @@ public class StackTest {
     public void getCardFromStackReducesStackSize(){
         stack.getCardFromStack();
         assertEquals(51, stack.getStackSize());
-
     }
+
+
 }
