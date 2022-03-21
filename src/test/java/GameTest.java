@@ -36,52 +36,58 @@ public class GameTest {
 //    }
 
     @Test
-    public void canPlayRoundWithArrayCards() {
-        stack.fillStack();
-        player.dealFirstCard(stack.getCardFromStack());
-        player.dealSecondCard(stack.getCardFromStack());
-        dealer.dealFirstCard(stack.getCardFromStack());
-        dealer.dealSecondCard(stack.getCardFromStack());
-        int playerHand = player.getPlayerCardsTotal();
-        if (playerHand < 17) {
-            player.twist(stack.getCardFromStack());
-        } else {
-            player.setStuckTrue();
-        }
-        dealer.twist(stack.getCardFromStack());
-        game.checkForBust();
-        game.checkForStick();
-        playerHand = player.getPlayerCardsTotal();
-        if (playerHand < 17) {
-            player.twist(stack.getCardFromStack());
-        } else {
-            player.setStuckTrue();
-        }
-        dealer.twist(stack.getCardFromStack());
-        game.checkForBust();
-        game.checkForStick();
-        playerHand = player.getPlayerCardsTotal();
-        if (playerHand < 17) {
-            player.twist(stack.getCardFromStack());
-        } else {
-            player.setStuckTrue();
-        }
-        dealer.twist(stack.getCardFromStack());
-        game.checkForBust();
-        game.checkForStick();
-        playerHand = player.getPlayerCardsTotal();
-        if (playerHand < 17) {
-            player.twist(stack.getCardFromStack());
-        } else {
-            player.setStuckTrue();
-        }
-        dealer.twist(stack.getCardFromStack());
-        game.checkForBust();
-        game.checkForStick();
-        assertEquals("Dealer wins!", game.checkForStick());
-
-
+    public void canCheckForBust() {
+        dealer.setBustTrue();
+        assertEquals("Player wins!", game.checkForBust());
     }
+
+//    @Test
+//    public void canPlayRoundWithArrayCards() {
+//        stack.fillStack();
+//        player.dealFirstCard(stack.getCardFromStack());
+//        player.dealSecondCard(stack.getCardFromStack());
+//        dealer.dealFirstCard(stack.getCardFromStack());
+//        dealer.dealSecondCard(stack.getCardFromStack());
+//        int playerHand = player.getPlayerCardsTotal();
+//        if (playerHand < 17) {
+//            player.twist(stack.getCardFromStack());
+//        } else {
+//            player.setStuckTrue();
+//        }
+//        dealer.twist(stack.getCardFromStack());
+//        game.checkForBust();
+//        game.checkForStick();
+//        playerHand = player.getPlayerCardsTotal();
+//        if (playerHand < 17) {
+//            player.twist(stack.getCardFromStack());
+//        } else {
+//            player.setStuckTrue();
+//        }
+//        dealer.twist(stack.getCardFromStack());
+//        game.checkForBust();
+//        game.checkForStick();
+//        playerHand = player.getPlayerCardsTotal();
+//        if (playerHand < 17) {
+//            player.twist(stack.getCardFromStack());
+//        } else {
+//            player.setStuckTrue();
+//        }
+//        dealer.twist(stack.getCardFromStack());
+//        game.checkForBust();
+//        game.checkForStick();
+//        playerHand = player.getPlayerCardsTotal();
+//        if (playerHand < 17) {
+//            player.twist(stack.getCardFromStack());
+//        } else {
+//            player.setStuckTrue();
+//        }
+//        dealer.twist(stack.getCardFromStack());
+//        game.checkForBust();
+//        game.checkForStick();
+//        assertEquals("Dealer wins!", game.checkForStick());
+//
+//
+//    }
 
 
     }

@@ -17,10 +17,13 @@ public class Game {
 
     public String checkForBust() {
         String winner = "";
-        if (dealer.isBust() == true) {
+        dealer.setBustTrue();
+        boolean dealerBust = dealer.isBust();
+        boolean playerBust = player.isBust();
+        if (dealerBust == true) {
             winner = "Dealer bust. Player wins!";
         }
-        if (player.isBust() == true) {
+        if (playerBust == true) {
             winner = "Player bust. Dealer wins!";
         }
         return winner;

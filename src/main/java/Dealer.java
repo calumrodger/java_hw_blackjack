@@ -53,6 +53,10 @@ public class Dealer {
         this.stuck = true;
     }
 
+    public void setBustTrue(){
+        this.bust = true;
+    }
+
     public boolean isBust() {
         return bust;
     }
@@ -72,9 +76,11 @@ public class Dealer {
     public void twist(Card card) {
         if (this.getDealerCardsTotal() < 16) {
             this.dealerCards.add(card);
+        }
         if (this.getDealerCardsTotal() > 21) {
-            this.bust = true;
-        }} else {
+            bust = true;
+        }
+        else {
             this.stuck = true;
         }
     }
